@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="max-w-4xl mx-auto px-6 py-16">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
 
   <!-- BACK BUTTON -->
   <a href="/blog/"
@@ -12,11 +12,11 @@
   <!-- COVER IMAGE -->
   {% if post.image %}
   <img src="{{ post.image.url }}"
-       class="rounded-xl mb-8 w-full h-72 object-cover border border-teal-100 shadow">
+       class="rounded-xl mb-8 w-full h-52 sm:h-64 md:h-72 object-cover border border-teal-100 shadow">
   {% endif %}
 
   <!-- TITLE -->
-  <h1 class="text-4xl font-bold leading-tight mb-4">
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
     {{ post.title }}
   </h1>
 
@@ -24,16 +24,6 @@
   <div class="text-sm text-slate-500 mb-6">
     {{ post.created_at|date:"M d, Y" }}
   </div>
-
-  <!-- GALLERY IMAGE -->
-  {% if post.gallery.all %}
-  <div class="grid md:grid-cols-3 gap-4 mt-8">
-    {% for img in post.gallery.all %}
-    <img src="{{ img.image.url }}"
-      class="rounded-lg border border-teal-100 object-cover h-40 w-full hover:scale-105 transition">
-    {% endfor %}
-  </div>
-  {% endif %}
 
   <!-- TAGS -->
   {% if post.tags.all %}
@@ -48,6 +38,7 @@
 
   <!-- BLOG CONTENT -->
   <article class="prose max-w-none
+                  prose-sm sm:prose
                   prose-headings:text-slate-800
                   prose-p:text-slate-700
                   prose-a:text-teal-600
@@ -61,6 +52,16 @@
     {{ post.content|safe }}
 
   </article>
+
+  <!-- GALLERY IMAGE -->
+  {% if post.gallery.all %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
+    {% for img in post.gallery.all %}
+    <img src="{{ img.image.url }}"
+      class="rounded-lg border border-teal-100 object-cover h-40 w-full hover:scale-105 transition">
+    {% endfor %}
+  </div>
+  {% endif %}
 
 </section>
 

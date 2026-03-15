@@ -1,31 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="max-w-6xl mx-auto px-6 py-16">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
 
   <!-- PAGE TITLE -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold mb-4">Scraping Tutorials</h1>
-    <p class="text-slate-500">
+  <div class="text-center mb-10 sm:mb-12">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+      Scraping Tutorials
+    </h1>
+
+    <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">
       Deep dives into Scrapy architecture, anti-bot bypass, proxies, and scalable crawlers.
     </p>
   </div>
 
   {% if posts %}
-  <div class="grid md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
 
     {% for post in posts %}
     <a href="/blog/{{ post.slug }}/"
-       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 transition">
+       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 hover:shadow-md transition">
 
       <!-- IMAGE -->
       {% if post.image %}
       <img src="{{ post.image.url }}"
-           class="h-44 w-full object-cover group-hover:scale-105 transition">
+           class="h-40 sm:h-44 w-full object-cover group-hover:scale-105 transition">
       {% endif %}
 
       <!-- CONTENT -->
-      <div class="p-5">
+      <div class="p-4 sm:p-5">
 
         <!-- DATE -->
         <p class="text-xs text-slate-500 mb-2">
@@ -33,7 +36,7 @@
         </p>
 
         <!-- TITLE -->
-        <h2 class="font-semibold text-lg group-hover:text-teal-600 transition">
+        <h2 class="font-semibold text-base sm:text-lg group-hover:text-teal-600 transition">
           {{ post.title }}
         </h2>
 
@@ -49,6 +52,7 @@
         {% endif %}
 
       </div>
+
     </a>
     {% endfor %}
 
@@ -57,9 +61,11 @@
   {% else %}
 
   <!-- EMPTY STATE -->
-  <div class="text-center py-20">
+  <div class="text-center py-16 sm:py-20">
     <p class="text-slate-500">No tutorials published yet.</p>
-    <p class="text-slate-400 text-sm mt-2">Add your first blog post from the admin panel.</p>
+    <p class="text-slate-400 text-sm mt-2">
+      Add your first blog post from the admin panel.
+    </p>
   </div>
 
   {% endif %}

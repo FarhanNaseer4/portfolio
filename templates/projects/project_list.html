@@ -1,25 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="max-w-6xl mx-auto px-6 py-16">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
 
   <!-- TITLE -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold mb-4">Projects</h1>
-    <p class="text-slate-500">
+  <div class="text-center mb-10 sm:mb-12">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+      Projects
+    </h1>
+
+    <p class="text-slate-500 text-sm sm:text-base max-w-2xl mx-auto">
       Scalable scraping systems, automation pipelines, and anti-bot solutions.
     </p>
   </div>
 
+
   <!-- SEARCH BAR -->
-  <form method="GET" class="mb-10 flex justify-center">
+  <form method="GET" class="mb-8 sm:mb-10 flex justify-center px-2">
     <input type="text" name="q" placeholder="Search projects..."
-      class="w-full max-w-xl p-3 rounded-lg bg-white border border-teal-100
+      class="w-full sm:w-auto sm:min-w-[400px] max-w-xl p-3 rounded-lg bg-white border border-teal-100
              focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
   </form>
 
+
   <!-- CATEGORY FILTER -->
-  <div class="flex flex-wrap justify-center gap-3 mb-12 text-sm">
+  <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12 text-xs sm:text-sm">
 
     <a href="/projects/"
        class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
@@ -36,29 +41,25 @@
        Selenium Automation
     </a>
 
-    <!--<a href="?category=other"
-       class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
-       API
-    </a>-->
-
   </div>
+
 
   <!-- PROJECT GRID -->
   {% if projects %}
-  <div class="grid md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
 
     {% for project in projects %}
     <a href="/projects/{{ project.slug }}/"
-       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 transition">
+       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 hover:shadow transition">
 
       <!-- IMAGE -->
       {% if project.image %}
       <img src="{{ project.image.url }}"
-           class="h-44 w-full object-cover group-hover:scale-105 transition">
+           class="h-40 sm:h-44 w-full object-cover group-hover:scale-105 transition">
       {% endif %}
 
       <!-- CONTENT -->
-      <div class="p-5">
+      <div class="p-4 sm:p-5">
 
         <!-- FEATURED BADGE -->
         {% if project.featured %}
@@ -68,7 +69,7 @@
         {% endif %}
 
         <!-- TITLE -->
-        <h2 class="font-semibold text-lg mt-2 group-hover:text-teal-600 transition">
+        <h2 class="font-semibold text-base sm:text-lg mt-2 group-hover:text-teal-600 transition">
           {{ project.title }}
         </h2>
 
@@ -106,6 +107,7 @@
         </div>
 
       </div>
+
     </a>
     {% endfor %}
 
@@ -114,9 +116,11 @@
   {% else %}
 
   <!-- EMPTY STATE -->
-  <div class="text-center py-20">
+  <div class="text-center py-16 sm:py-20">
     <p class="text-slate-500">No projects added yet.</p>
-    <p class="text-slate-400 text-sm mt-2">Add your first project from the admin panel.</p>
+    <p class="text-slate-400 text-sm mt-2">
+      Add your first project from the admin panel.
+    </p>
   </div>
 
   {% endif %}

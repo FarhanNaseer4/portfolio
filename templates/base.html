@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Farhan Naseer | Web Scraping Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farhan Naseer | Web Scraping Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
 /* Floating animation */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+0% { transform: translateY(0px); }
+50% { transform: translateY(-12px); }
+100% { transform: translateY(0px); }
 }
 
 .hero-float {
-  animation: float 4s ease-in-out infinite;
+animation: float 4s ease-in-out infinite;
 }
 
-/* Gradient glow background */
-.hero-glow {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle, rgba(20,184,166,0.35) 0%, rgba(34,197,94,0.15) 50%, transparent 70%);
-  filter: blur(40px);
-  animation: pulseGlow 4s ease-in-out infinite;
+/* Glow */
+.hero-glow{
+position:absolute;
+width:280px;
+height:280px;
+background: radial-gradient(circle,
+rgba(20,184,166,0.35) 0%,
+rgba(34,197,94,0.15) 50%,
+transparent 70%);
+filter: blur(40px);
+animation:pulseGlow 4s ease-in-out infinite;
 }
 
-@keyframes pulseGlow {
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
+@keyframes pulseGlow{
+0%{transform:scale(1);opacity:0.7;}
+50%{transform:scale(1.15);opacity:1;}
+100%{transform:scale(1);opacity:0.7;}
 }
 
-/* Global animated background */
-.site-background {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
+/* Background blobs */
+
+.site-background{
+position:fixed;
+inset:0;
+z-index:-1;
+overflow:hidden;
 }
 
-/* Gradient blobs */
-.bg-blob {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.25;
-  animation: blobMove 25s infinite ease-in-out;
+.bg-blob{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(100px);
+opacity:0.25;
+animation:blobMove 25s infinite ease-in-out;
 }
 
-/* Different colors */
-.bg-blob-1 {
-  background: #14b8a6;
-  top: -150px;
-  left: -120px;
+.bg-blob-1{
+background:#14b8a6;
+top:-150px;
+left:-120px;
 }
 
-.bg-blob-2 {
-  background: #22c55e;
-  bottom: -150px;
-  right: -120px;
-  animation-delay: 8s;
+.bg-blob-2{
+background:#22c55e;
+bottom:-150px;
+right:-120px;
+animation-delay:8s;
 }
 
-.bg-blob-3 {
-  background: #0ea5a4;
-  top: 40%;
-  left: 45%;
-  animation-delay: 16s;
+.bg-blob-3{
+background:#0ea5a4;
+top:40%;
+left:45%;
+animation-delay:16s;
 }
 
-@keyframes blobMove {
-  0% { transform: translate(0px,0px) scale(1); }
-  50% { transform: translate(120px,-80px) scale(1.2); }
-  100% { transform: translate(0px,0px) scale(1); }
+@keyframes blobMove{
+0%{transform:translate(0,0) scale(1);}
+50%{transform:translate(120px,-80px) scale(1.2);}
+100%{transform:translate(0,0) scale(1);}
 }
 
 </style>
@@ -84,239 +93,276 @@
 
 <body class="bg-white text-slate-800 relative">
 
-<!-- Animated background -->
+<!-- Animated Background -->
 <div class="site-background">
-  <div class="bg-blob bg-blob-1"></div>
-  <div class="bg-blob bg-blob-2"></div>
-  <div class="bg-blob bg-blob-3"></div>
+<div class="bg-blob bg-blob-1"></div>
+<div class="bg-blob bg-blob-2"></div>
+<div class="bg-blob bg-blob-3"></div>
 </div>
 
-<!-- NAVBAR -->
+
+<!-- ================= NAVBAR ================= -->
+
 <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-teal-100">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <h1 class="font-bold text-lg text-teal-600">ScrapingGenius</h1>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
 
-    <div class="space-x-6 text-sm">
-      <a href="/" class="hover:text-teal-600">Home</a>
-      <a href="/projects/" class="hover:text-teal-600">Projects</a>
-      <a href="/blog/" class="hover:text-teal-600">Blog</a>
-      <a href="/contact/" class="hover:text-teal-600">Contact</a>
-    </div>
+<h1 class="font-bold text-lg text-teal-600">
+ScrapingGenius
+</h1>
 
-  </div>
+<!-- Desktop menu -->
+
+<div class="hidden md:flex space-x-6 text-sm">
+
+<a href="/" class="hover:text-teal-600">Home</a>
+<a href="/projects/" class="hover:text-teal-600">Projects</a>
+<a href="/blog/" class="hover:text-teal-600">Blog</a>
+<a href="/contact/" class="hover:text-teal-600">Contact</a>
+
+</div>
+
+<!-- Mobile menu button -->
+
+<button id="menuBtn"
+class="md:hidden text-xl text-teal-600">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</div>
+
+<!-- Mobile Menu -->
+
+<div id="mobileMenu"
+class="hidden md:hidden px-6 pb-4 space-y-3 text-sm">
+
+<a href="/" class="block hover:text-teal-600">Home</a>
+<a href="/projects/" class="block hover:text-teal-600">Projects</a>
+<a href="/blog/" class="block hover:text-teal-600">Blog</a>
+<a href="/contact/" class="block hover:text-teal-600">Contact</a>
+
+</div>
+
 </nav>
 
-<!-- PAGE CONTENT -->
-<main class="min-h-screen">
-  {% block content %}{% endblock %}
+
+<!-- ================= PAGE CONTENT ================= -->
+
+<main class="min-h-screen px-4 sm:px-6">
+
+{% block content %}
+
+{% endblock %}
+
 </main>
 
-<!-- FOOTER -->
-<footer class="border-t border-teal-100 mt-20">
-  <div class="max-w-6xl mx-auto px-6 py-8 text-center text-slate-500 text-sm">
-    © {{ now|date:"Y" }} Farhan Naseer — Web Scraping & Automation Engineer
-  </div>
-</footer>
 
-<!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/923344633584"
-   class="fixed bottom-6 right-6 bg-teal-600 hover:bg-teal-500 text-white px-5 py-3 rounded-full shadow-lg">
-   Hire Me
-</a>
+<!-- ================= FOOTER ================= -->
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const skills = document.querySelectorAll(".skill-item");
-
-  const animateSkills = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-
-        const bar = entry.target.querySelector(".skill-bar");
-        const percent = entry.target.querySelector(".skill-percent");
-        const level = entry.target.getAttribute("data-level");
-
-        bar.style.transition = "width 1.5s ease";
-        bar.style.width = level + "%";
-
-        let count = 0;
-        const interval = setInterval(() => {
-          if (count >= level) {
-            count = level;
-            clearInterval(interval);
-          }
-          percent.textContent = count + "%";
-          count++;
-        }, 15);
-
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(animateSkills, {
-    threshold: 0.4
-  });
-
-  skills.forEach(skill => observer.observe(skill));
-});
-</script>
-
-<!-- FOOTER -->
 <footer class="bg-gradient-to-r from-teal-50 via-white to-emerald-50 border-t border-teal-100 mt-24">
 
-  <div class="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
+<div class="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
 
-    <!-- ABOUT -->
-    <div>
-      <h3 class="text-lg font-semibold text-teal-700 mb-3">
-        Farhan Naseer
-      </h3>
+<!-- ABOUT -->
 
-      <p class="text-slate-600 text-sm leading-relaxed">
-        Web Scraping & Automation Engineer specializing in scalable data extraction,
-        anti-bot bypass systems, and analytics pipelines using Python, Scrapy,
-        Selenium, Playwright and modern data tools.
-      </p>
+<div class="text-center md:text-left">
 
-      <!-- SOCIAL ICONS -->
-      <div class="mt-5 flex gap-5 text-xl text-slate-600">
+<h3 class="text-lg font-semibold text-teal-700 mb-3">
+Farhan Naseer
+</h3>
 
-        <a href="https://www.upwork.com/freelancers/~01e0558fb71bf07559"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-brands fa-upwork"></i>
-        </a>
+<p class="text-slate-600 text-sm leading-relaxed">
 
-        <a href="https://www.fiverr.com/scrapinggenius?public_mode=true"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-solid fa-laptop-code"></i>
-        </a>
+Web Scraping & Automation Engineer specializing in scalable data extraction,
+anti-bot bypass systems, and analytics pipelines using Python, Scrapy,
+Selenium, Playwright and modern data tools.
 
-        <a href="https://github.com/FarhanNaseer4/ScrapyProjects"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-brands fa-github"></i>
-        </a>
+</p>
 
-        <a href="https://www.linkedin.com/in/farhan-naseer-4950a5179/"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-brands fa-linkedin"></i>
-        </a>
+<div class="mt-5 flex justify-center md:justify-start gap-5 text-xl text-slate-600">
 
-      </div>
-    </div>
+<a href="https://www.upwork.com/freelancers/~01e0558fb71bf07559"
+target="_blank"
+class="hover:text-emerald-600">
 
+<i class="fa-brands fa-upwork"></i>
 
-    <!-- QUICK LINKS -->
-    <div>
-      <h4 class="font-semibold mb-3 text-slate-800">
-        Quick Links
-      </h4>
+</a>
 
-      <ul class="space-y-2 text-sm text-slate-600">
+<a href="https://www.fiverr.com/scrapinggenius"
+target="_blank"
+class="hover:text-emerald-600">
 
-        <li>
-          <a href="/" class="hover:text-emerald-600">Home</a>
-        </li>
+<i class="fa-solid fa-laptop-code"></i>
 
-        <li>
-          <a href="/projects/" class="hover:text-emerald-600">Projects</a>
-        </li>
+</a>
 
-        <li>
-          <a href="/blog/" class="hover:text-emerald-600">Blog</a>
-        </li>
+<a href="https://github.com/FarhanNaseer4/ScrapyProjects"
+target="_blank"
+class="hover:text-emerald-600">
 
-        <li>
-          <a href="/contact/" class="hover:text-emerald-600">Contact</a>
-        </li>
+<i class="fa-brands fa-github"></i>
 
-      </ul>
-    </div>
+</a>
+
+<a href="https://linkedin.com/in/farhan-naseer-4950a5179"
+target="_blank"
+class="hover:text-emerald-600">
+
+<i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+</div>
+
+</div>
 
 
-    <!-- CONTACT -->
-    <div>
-      <h4 class="font-semibold mb-3 text-slate-800">
-        Contact
-      </h4>
+<!-- LINKS -->
 
-      <div class="space-y-2 text-sm text-slate-600">
+<div class="text-center md:text-left">
 
-        <p>
-          Email:
-          <a href="mailto:farhan.work.soft@email.com"
-             class="text-emerald-600 hover:underline">
-             farhan.work.soft@email.com
-          </a>
-        </p>
+<h4 class="font-semibold mb-3 text-slate-800">
+Quick Links
+</h4>
 
-        <p>
-          Location: Bhakkar Punjab, Pakistan
-        </p>
+<ul class="space-y-2 text-sm text-slate-600">
 
-        <p>
-          Specialization:
-          <span class="text-slate-700">
-            Web Scraping • Data Automation • Analytics
-          </span>
-        </p>
+<li><a href="/" class="hover:text-emerald-600">Home</a></li>
+<li><a href="/projects/" class="hover:text-emerald-600">Projects</a></li>
+<li><a href="/blog/" class="hover:text-emerald-600">Blog</a></li>
+<li><a href="/contact/" class="hover:text-emerald-600">Contact</a></li>
 
-      </div>
+</ul>
 
-    </div>
-
-  </div>
+</div>
 
 
-  <!-- FREELANCE PLATFORM STRIP -->
-  <div class="border-t border-teal-100 py-6">
+<!-- CONTACT -->
 
-    <div class="max-w-6xl mx-auto px-6 text-center">
+<div class="text-center md:text-left">
 
-      <p class="text-sm text-slate-500 mb-4">
-        Available for freelance work on
-      </p>
+<h4 class="font-semibold mb-3 text-slate-800">
+Contact
+</h4>
 
-      <div class="flex justify-center gap-8 text-2xl text-slate-600">
+<div class="space-y-2 text-sm text-slate-600">
 
-        <a href="https://www.upwork.com/freelancers/~01e0558fb71bf07559"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-brands fa-upwork"></i>
-        </a>
+<p>
+Email:
+<a href="mailto:farhan.work.soft@email.com"
+class="text-emerald-600 hover:underline">
+farhan.work.soft@email.com
+</a>
+</p>
 
-        <a href="https://www.fiverr.com/scrapinggenius"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-solid fa-laptop-code"></i>
-        </a>
+<p>
+Location: Bhakkar, Pakistan
+</p>
 
-        <a href="https://linkedin.com/in/farhan-naseer-4950a5179"
-           target="_blank"
-           class="hover:text-emerald-600 transition">
-           <i class="fa-brands fa-linkedin"></i>
-        </a>
+<p>
+Specialization:
+<span class="text-slate-700">
+Web Scraping • Data Automation • Analytics
+</span>
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <!-- COPYRIGHT -->
-  <div class="border-t border-teal-100 text-center text-sm text-slate-500 py-4">
+<!-- COPYRIGHT -->
 
-    © {% now "Y" %} Farhan Naseer — Web Scraping & Automation Engineer
+<div class="border-t border-teal-100 text-center text-sm text-slate-500 py-4">
 
-  </div>
+© {% now "Y" %} Farhan Naseer — Web Scraping & Automation Engineer
+
+</div>
 
 </footer>
+
+
+<!-- ================= WHATSAPP BUTTON ================= -->
+
+<a href="https://wa.me/923344633584"
+class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6
+bg-teal-600 hover:bg-teal-500 text-white
+px-4 py-3 sm:px-5 rounded-full shadow-lg text-sm">
+
+Hire Me
+
+</a>
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+mobileMenu.classList.toggle("hidden");
+});
+
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const skills = document.querySelectorAll(".skill-item");
+
+const animateSkills = (entries, observer) => {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+
+const bar = entry.target.querySelector(".skill-bar");
+const percent = entry.target.querySelector(".skill-percent");
+const level = entry.target.getAttribute("data-level");
+
+bar.style.transition = "width 1.5s ease";
+bar.style.width = level + "%";
+
+let count = 0;
+
+const interval = setInterval(() => {
+
+if (count >= level) {
+count = level;
+clearInterval(interval);
+}
+
+percent.textContent = count + "%";
+count++;
+
+}, 15);
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+};
+
+const observer = new IntersectionObserver(animateSkills,{
+threshold:0.4
+});
+
+skills.forEach(skill => observer.observe(skill));
+
+});
+
+</script>
 
 </body>
 </html>

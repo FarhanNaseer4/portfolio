@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="max-w-5xl mx-auto px-6 py-16">
+
+  <!-- BACK LINK -->
+  <a href="/projects/" class="text-sm text-teal-600 hover:underline">
+    ← Back to Projects
+  </a>
+
+  <!-- HERO IMAGE -->
+  {% if project.image %}
+  <div class="mt-6">
+    <img src="{{ project.image.url }}"
+         class="w-full h-80 object-cover rounded-xl border border-teal-100 shadow">
+  </div>
+  {% endif %}
+
+  <!-- GALLERY IMAGE -->
+  {% if project.images.all %}
+  <div class="grid md:grid-cols-3 gap-4 mt-8">
+    {% for img in project.images.all %}
+    <img src="{{ img.image.url }}"
+      class="rounded-lg border border-teal-100 object-cover h-40 w-full hover:scale-105 transition">
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- TITLE -->
+  <h1 class="text-4xl font-bold mt-8">{{ project.title }}</h1>
+
+  <!-- TECH STACK BADGES -->
+  <div class="flex flex-wrap gap-2 mt-4">
+    {% for tech in tech_list %}
+    <span class="text-xs bg-teal-600/10 text-teal-600 px-3 py-1 rounded-full border border-teal-200">
+      {{ tech }}
+    </span>
+    {% endfor %}
+  </div>
+
+  <!-- DESCRIPTION -->
+  <p class="mt-6 text-slate-600 leading-relaxed">
+    {{ project.description }}
+  </p>
+
+  <!-- METRICS -->
+  {% if project.records_scraped or project.uptime or project.speed %}
+  <div class="grid sm:grid-cols-3 gap-4 mt-8 text-center">
+
+    {% if project.records_scraped %}
+    <div class="bg-white border border-teal-100 rounded-xl p-4">
+      <p class="text-2xl font-bold text-teal-600">{{ project.records_scraped }}</p>
+      <p class="text-xs text-slate-500">Records Scraped</p>
+    </div>
+    {% endif %}
+
+    {% if project.uptime %}
+    <div class="bg-white border border-teal-100 rounded-xl p-4">
+      <p class="text-2xl font-bold text-green-600">{{ project.uptime }}</p>
+      <p class="text-xs text-slate-500">Uptime</p>
+    </div>
+    {% endif %}
+
+    {% if project.speed %}
+    <div class="bg-white border border-teal-100 rounded-xl p-4">
+      <p class="text-2xl font-bold text-teal-500">{{ project.speed }}</p>
+      <p class="text-xs text-slate-500">Speed</p>
+    </div>
+    {% endif %}
+
+  </div>
+  {% endif %}
+
+  <!-- TAGS -->
+  {% if project.tags.all %}
+  <div class="flex flex-wrap gap-2 mt-8">
+    {% for tag in project.tags.all %}
+    <span class="text-xs bg-teal-600/10 text-teal-600 px-3 py-1 rounded-full border border-teal-200">
+      {{ tag.name }}
+    </span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- ACTION BUTTONS -->
+  <div class="mt-10 flex flex-wrap gap-4">
+
+    {% if project.github_url %}
+    <a href="{{ project.github_url }}" target="_blank"
+       class="bg-white border border-teal-200 px-6 py-3 rounded-lg hover:border-teal-500 transition">
+      View Code
+    </a>
+    {% endif %}
+
+    {% if project.live_url %}
+    <a href="{{ project.live_url }}" target="_blank"
+       class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-lg font-medium">
+      Live Demo
+    </a>
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% endblock %}

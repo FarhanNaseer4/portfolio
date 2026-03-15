@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="max-w-6xl mx-auto px-6 py-16">
+
+  <!-- TITLE -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold mb-4">Projects</h1>
+    <p class="text-slate-500">
+      Scalable scraping systems, automation pipelines, and anti-bot solutions.
+    </p>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <form method="GET" class="mb-10 flex justify-center">
+    <input type="text" name="q" placeholder="Search projects..."
+      class="w-full max-w-xl p-3 rounded-lg bg-white border border-teal-100
+             focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
+  </form>
+
+  <!-- CATEGORY FILTER -->
+  <div class="flex flex-wrap justify-center gap-3 mb-12 text-sm">
+
+    <a href="/projects/"
+       class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
+       All
+    </a>
+
+    <a href="?category=WebScraping"
+       class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
+       Web Scraping
+    </a>
+
+    <a href="?category=SeleniumAutomation"
+       class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
+       Selenium Automation
+    </a>
+
+    <!--<a href="?category=other"
+       class="px-4 py-2 rounded-full border border-teal-200 hover:border-teal-500">
+       API
+    </a>-->
+
+  </div>
+
+  <!-- PROJECT GRID -->
+  {% if projects %}
+  <div class="grid md:grid-cols-3 gap-8">
+
+    {% for project in projects %}
+    <a href="/projects/{{ project.slug }}/"
+       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 transition">
+
+      <!-- IMAGE -->
+      {% if project.image %}
+      <img src="{{ project.image.url }}"
+           class="h-44 w-full object-cover group-hover:scale-105 transition">
+      {% endif %}
+
+      <!-- CONTENT -->
+      <div class="p-5">
+
+        <!-- FEATURED BADGE -->
+        {% if project.featured %}
+        <span class="text-xs bg-teal-600/10 text-teal-600 px-2 py-1 rounded border border-teal-200">
+          Featured
+        </span>
+        {% endif %}
+
+        <!-- TITLE -->
+        <h2 class="font-semibold text-lg mt-2 group-hover:text-teal-600 transition">
+          {{ project.title }}
+        </h2>
+
+        <!-- TECH STACK PREVIEW -->
+        <p class="text-xs text-slate-500 mt-2 line-clamp-2">
+          {{ project.tech_stack }}
+        </p>
+
+        <!-- TAG PREVIEW -->
+        {% if project.tags.all %}
+        <div class="flex flex-wrap gap-2 mt-3">
+          {% for tag in project.tags.all|slice:":3" %}
+          <span class="text-xs bg-teal-600/10 text-teal-600 px-2 py-1 rounded border border-teal-200">
+            {{ tag.name }}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- METRICS PREVIEW -->
+        <div class="flex justify-between text-xs text-slate-500 mt-4">
+
+          {% if project.records_scraped %}
+          <span>{{ project.records_scraped }} rows</span>
+          {% endif %}
+
+          {% if project.speed %}
+          <span>{{ project.speed }}</span>
+          {% endif %}
+
+          {% if project.uptime %}
+          <span>{{ project.uptime }}</span>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+
+  {% else %}
+
+  <!-- EMPTY STATE -->
+  <div class="text-center py-20">
+    <p class="text-slate-500">No projects added yet.</p>
+    <p class="text-slate-400 text-sm mt-2">Add your first project from the admin panel.</p>
+  </div>
+
+  {% endif %}
+
+</section>
+
+{% endblock %}

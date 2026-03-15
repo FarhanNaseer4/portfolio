@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="max-w-6xl mx-auto px-6 py-16">
+
+  <!-- PAGE TITLE -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold mb-4">Scraping Tutorials</h1>
+    <p class="text-slate-500">
+      Deep dives into Scrapy architecture, anti-bot bypass, proxies, and scalable crawlers.
+    </p>
+  </div>
+
+  {% if posts %}
+  <div class="grid md:grid-cols-3 gap-8">
+
+    {% for post in posts %}
+    <a href="/blog/{{ post.slug }}/"
+       class="group bg-white border border-teal-100 rounded-xl overflow-hidden hover:border-teal-500 transition">
+
+      <!-- IMAGE -->
+      {% if post.image %}
+      <img src="{{ post.image.url }}"
+           class="h-44 w-full object-cover group-hover:scale-105 transition">
+      {% endif %}
+
+      <!-- CONTENT -->
+      <div class="p-5">
+
+        <!-- DATE -->
+        <p class="text-xs text-slate-500 mb-2">
+          {{ post.created_at|date:"M d, Y" }}
+        </p>
+
+        <!-- TITLE -->
+        <h2 class="font-semibold text-lg group-hover:text-teal-600 transition">
+          {{ post.title }}
+        </h2>
+
+        <!-- TAG PREVIEW -->
+        {% if post.tags.all %}
+        <div class="flex flex-wrap gap-2 mt-3">
+          {% for tag in post.tags.all|slice:":3" %}
+          <span class="text-xs bg-teal-600/10 text-teal-600 px-2 py-1 rounded border border-teal-200">
+            {{ tag.name }}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+
+  {% else %}
+
+  <!-- EMPTY STATE -->
+  <div class="text-center py-20">
+    <p class="text-slate-500">No tutorials published yet.</p>
+    <p class="text-slate-400 text-sm mt-2">Add your first blog post from the admin panel.</p>
+  </div>
+
+  {% endif %}
+
+</section>
+
+{% endblock %}

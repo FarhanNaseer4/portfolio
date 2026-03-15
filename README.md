@@ -1,4 +1,3 @@
-```markdown
 # Django Portfolio – Web Scraping & Automation Engineer
 
 A modern portfolio website built with **Django** to showcase web scraping projects, technical blogs, and automation solutions.
@@ -43,9 +42,8 @@ Other Tools
 
 ---
 
-## Project Structure
-
 ```
+## Project Structure
 
 portfolio/
 │
@@ -276,9 +274,3 @@ Platforms:
 - LinkedIn
 
 ---
-
-## License
-
-This project is open-source and available for educational and portfolio use.
-
-```

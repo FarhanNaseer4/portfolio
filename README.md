@@ -1,4 +1,3 @@
-```markdown
 # Django Portfolio – Web Scraping & Automation Engineer
 
 A modern portfolio website built with **Django** to showcase web scraping projects, technical blogs, and automation solutions.

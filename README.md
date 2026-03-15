@@ -42,9 +42,8 @@ Other Tools
 
 ---
 
-## Project Structure
-
 ```
+## Project Structure
 
 portfolio/
 │
@@ -275,9 +274,3 @@ Platforms:
 - LinkedIn
 
 ---
-
-## License
-
-This project is open-source and available for educational and portfolio use.
-
-```

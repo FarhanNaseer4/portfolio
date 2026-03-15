@@ -2,160 +2,266 @@
 {% block content %}
 
 <!-- HERO -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-  <div class="text-center md:text-left">
+<div class="text-center md:text-left">
 
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-      Web Scraping Engineer
-      <span class="text-teal-600 block mt-1">
-        Scrapy • Selenium • Playwright
-      </span>
-    </h1>
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+Web Scraping Engineer
+<span class="text-teal-600 block mt-2">
+Scrapy • Selenium • Playwright
+</span>
+</h1>
 
-    <p class="mt-6 text-slate-500 text-sm sm:text-base">
-      I build scalable data extraction systems using Scrapy, Selenium, and Playwright
-      with proxy rotation, CAPTCHA solving, and cloud automation. I also transform
-      scraped datasets into meaningful insights using Power BI dashboards and
-      data visualization. Delivered millions of records for clients across
-      e-commerce, real estate, and lead generation.
-    </p>
+<p class="mt-6 text-slate-500 text-base">
+I build scalable data extraction systems using Scrapy, Selenium, and Playwright
+with proxy rotation, CAPTCHA solving, and cloud automation. I also transform
+scraped datasets into insights using Power BI dashboards.
+</p>
 
-    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 
-      <a href="/media/cv.pdf"
-         class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-lg text-center">
-        Download CV
-      </a>
+<a href="/media/cv.pdf"
+class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-lg shadow-lg transition">
+Download CV
+</a>
 
-      <a href="/projects/"
-         class="border border-teal-200 px-6 py-3 rounded-lg hover:border-teal-500 text-center">
-        View Projects
-      </a>
+<a href="/projects/"
+class="border border-teal-300 px-6 py-3 rounded-lg hover:border-teal-500 hover:bg-teal-50 transition">
+View Projects
+</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <!-- PROFILE IMAGE -->
-  <div class="flex justify-center relative mt-6 md:mt-0">
+<div class="flex justify-center relative">
 
-    <!-- glowing background -->
-    <div class="hero-glow"></div>
+<div class="hero-glow"></div>
 
-    <!-- profile image -->
-    <img src="/media/profile.jpg"
-         class="hero-float relative w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 object-cover rounded-2xl border border-teal-100 shadow-xl transition hover:scale-105">
+<img src="/media/profile.jpg"
+class="hero-float relative w-52 h-52 sm:w-64 sm:h-64 object-cover rounded-2xl border border-teal-100 shadow-2xl transition hover:scale-105">
 
-  </div>
+</div>
 
 </section>
+
 
 
 <!-- ABOUT -->
-<section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+<section class="max-w-4xl mx-auto px-6 py-16 text-center">
 
-  <h2 class="text-xl sm:text-2xl font-bold mb-6">
-    About Me
-  </h2>
+<h2 class="text-3xl font-bold mb-6">
+About Me
+</h2>
 
-  <p class="text-slate-500 text-sm sm:text-base">
-    Python-based data extraction specialist with expertise in Scrapy architecture,
-    Selenium automation, undetected browsers, proxy rotation, and anti-bot bypass
-    strategies. I design reliable, high-throughput crawlers with structured
-    pipelines, database storage, and automated scheduling. I also build
-    interactive Power BI dashboards to visualize scraped data, enabling
-    businesses to turn raw data into actionable insights.
-  </p>
+<p class="text-slate-600 text-lg leading-relaxed">
+Python-based data extraction specialist experienced in Scrapy architecture,
+Selenium automation, proxy rotation, anti-bot bypass systems and scalable
+crawler pipelines.
+</p>
 
 </section>
 
 
-<!-- SKILLS -->
-<section class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
-  <h2 class="text-xl sm:text-2xl font-bold text-center mb-10 sm:mb-12">
-    Tech Stack
-  </h2>
+<!-- TECH STACK -->
+<section class="bg-gradient-to-br from-white via-teal-50 to-emerald-100 py-20">
 
-  <div class="space-y-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-    {% for category, skills in skill_groups.items %}
-    <div>
+<h2 class="text-3xl font-bold text-center mb-16 text-slate-800">
+Tech Stack
+</h2>
 
-      <!-- CATEGORY TITLE -->
-      <h3 class="text-lg font-semibold mb-6 text-teal-600">
-        {{ category }}
-      </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        {% for skill in skills %}
-        <div class="skill-item" data-level="{{ skill.level }}">
+<!-- LANGUAGES -->
+<div class="mb-20">
 
-          <!-- NAME -->
-          <div class="flex justify-between items-center mb-2 text-sm">
+<h3 class="text-xl font-semibold mb-8 text-teal-700">
+Languages
+</h3>
 
-            <div class="flex items-center gap-3">
-              <i class="{{ skill.icon }} text-teal-600"></i>
-              <span>{{ skill.name }}</span>
-            </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <span class="text-slate-500 skill-percent">0%</span>
+{% for skill in skills %}
+{% if skill.category == "Language" %}
 
-          </div>
+<div class="skill-item bg-white/70 backdrop-blur border border-teal-100 p-6 rounded-xl shadow-sm hover:shadow-md transition"
+data-level="{{ skill.level }}">
 
-          <!-- BAR -->
-          <div class="w-full bg-teal-100 rounded-full h-2 overflow-hidden">
+<div class="flex justify-between items-center mb-3 text-sm">
 
-            <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full skill-bar"
-                 style="width: 0%">
-            </div>
+<div class="flex items-center gap-3">
+<i class="{{ skill.icon }} text-teal-600"></i>
+<span class="font-medium">{{ skill.name }}</span>
+</div>
 
-          </div>
+<span class="text-slate-500 skill-percent">0%</span>
 
-        </div>
-        {% endfor %}
+</div>
 
-      </div>
+<div class="w-full bg-teal-100 rounded-full h-2 overflow-hidden">
 
-    </div>
-    {% endfor %}
+<div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full skill-bar"
+style="width:0%">
+</div>
 
-  </div>
+</div>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+</div>
+
+
+
+<!-- FRAMEWORKS -->
+<div class="mb-20">
+
+<h3 class="text-2xl font-bold text-center mb-10 text-teal-700">
+Frameworks
+</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+{% for skill in skills %}
+{% if skill.category == "Framework" %}
+
+<div class="border-2 border-teal-500 bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition">
+
+<h3 class="text-xl font-semibold text-teal-600 mb-3">
+{{ skill.name }}
+</h3>
+
+<p class="text-slate-600 text-sm leading-relaxed">
+{{ skill.description }}
+</p>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+</div>
+
+
+
+<!-- TOOLS -->
+<div class="mb-20">
+
+<h3 class="text-2xl font-bold text-center mb-10 text-teal-700">
+Tools & Platforms
+</h3>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+{% for skill in skills %}
+{% if skill.category == "Tool" %}
+
+<div class="bg-white p-8 rounded-xl border border-teal-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+
+<i class="{{ skill.icon }} text-4xl text-teal-600 mb-4"></i>
+
+<h3 class="font-semibold text-lg mb-2">
+{{ skill.name }}
+</h3>
+
+<p class="text-sm text-slate-500">
+{{ skill.description }}
+</p>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+</div>
+
+
+
+<!-- DATABASE -->
+<div class="mb-20">
+
+<h3 class="text-2xl font-bold text-center mb-12 text-teal-700">
+Databases
+</h3>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12 text-center">
+
+{% for skill in skills %}
+{% if skill.category == "Database" %}
+
+<div class="group flex flex-col items-center">
+
+<div class="w-24 h-24 flex items-center justify-center rounded-full border-2 border-teal-200 bg-white shadow hover:shadow-lg group-hover:scale-105 transition">
+
+<i class="{{ skill.icon }} text-4xl text-teal-600"></i>
+
+</div>
+
+<p class="mt-4 font-semibold text-slate-700">
+{{ skill.name }}
+</p>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- FEATURED PROJECTS -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
 
-  <h2 class="text-xl sm:text-2xl font-bold mb-10 text-center">
-    Featured Projects
-  </h2>
+<h2 class="text-3xl font-bold mb-12 text-center">
+Featured Projects
+</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
-    {% for project in projects %}
-    <a href="/projects/{{ project.slug }}/"
-       class="bg-white border border-teal-100 rounded-xl p-4 hover:border-teal-500 hover:shadow transition">
+{% for project in projects %}
+<a href="/projects/{{ project.slug }}/"
+class="bg-white border border-teal-100 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition">
 
-      <img src="{{ project.image.url }}"
-           class="rounded-lg mb-4 h-40 w-full object-cover">
+<img src="{{ project.image.url }}"
+class="h-44 w-full object-cover">
 
-      <h3 class="font-semibold">
-        {{ project.title }}
-      </h3>
+<div class="p-6">
 
-      <p class="text-slate-500 text-sm mt-2">
-        {{ project.tech_stack }}
-      </p>
+<h3 class="font-semibold text-lg">
+{{ project.title }}
+</h3>
 
-    </a>
-    {% endfor %}
+<p class="text-sm text-slate-500 mt-2">
+{{ project.tech_stack }}
+</p>
 
-  </div>
+</div>
+
+</a>
+{% endfor %}
+
+</div>
 
 </section>
 

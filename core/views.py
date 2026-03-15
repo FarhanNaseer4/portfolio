@@ -24,16 +24,12 @@ def home(request):
     posts = BlogPost.objects.filter(published=True)[:3]
 
     # Group skills by category
-    skills = Skill.objects.all().order_by('category', '-level')
-    skill_groups = defaultdict(list)
-
-    for skill in skills:
-        skill_groups[skill.category].append(skill)
+    skills = Skill.objects.all().order_by("category", "-level")
 
     return render(request, 'core/home.html', {
         'projects': featured_projects,
         'posts': posts,
-        'skill_groups': dict(skill_groups),
+        "skills": skills,
     })
 
 def contact(request):
